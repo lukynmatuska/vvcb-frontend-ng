@@ -62,13 +62,39 @@
         <li class="flex items-center">
           <a
             class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-            href="https://www.instagram.com/explore/tags/nasevcb/"
+            href="https://www.instagram.com/vcblanenska/"
             target="_blank"
           >
             <i
               class="lg:text-blueGray-200 text-blueGray-400 fab fa-instagram text-lg leading-lg"
             />
             <span class="lg:hidden inline-block ml-2">Instagram</span>
+          </a>
+        </li>
+
+        <li class="flex items-center">
+          <a
+            class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+            href="https://www.youtube.com/channel/UCV81V7MPYxpaUH9Odqd6X5g"
+            target="_blank"
+          >
+            <i
+              class="lg:text-blueGray-200 text-blueGray-400 fab fa-youtube text-lg leading-lg"
+            />
+            <span class="lg:hidden inline-block ml-2">YouTube</span>
+          </a>
+        </li>
+
+        <li class="flex items-center">
+          <a
+            class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+            href="http://vc-blanenska.com/"
+            target="_blank"
+          >
+            <i
+              class="lg:text-blueGray-200 text-blueGray-400 fab fa-wordpress-simple text-lg leading-lg"
+            />
+            <span class="lg:hidden inline-block ml-2">Webové stránky</span>
           </a>
         </li>
 
