@@ -2,6 +2,7 @@
     // core components
     import AuthNavbar from "../components/Navbars/AuthNavbar.svelte";
     import Footer from "../components/Footers/Footer.svelte";
+    import ResultsTable from "../components/Results/ResultsTable.svelte";
 
     export let location;
 </script>
@@ -10,15 +11,16 @@
     <AuthNavbar />
     <main>
         <div
-            class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75"
+            class="relative pt-32 pb-32 flex content-center items-center justify-center"
+            style="min-height: 35vh;"
         >
             <div
                 class="absolute top-0 w-full h-full bg-center bg-cover"
-                style="background-image: url(/assets/img/20170820120952_IMG_6124.jpeg);"
+                style="background-image: url(/assets/img/20170820130354_IMG_6505.jpeg);"
             >
                 <span
                     id="blackOverlay"
-                    class="w-full h-full absolute opacity-75 bg-black"
+                    class="w-full h-full absolute opacity-50 bg-black"
                 />
             </div>
             <div class="container relative mx-auto">
@@ -28,19 +30,11 @@
                     >
                         <div class="pr-12">
                             <h1 class="text-white font-semibold text-5xl">
-                                Výsledky Velké Ceny Blanenska
+                                Výsledky
                             </h1>
                             <p class="mt-4 text-lg text-blueGray-200">
                                 Rychle a přehledně na jednom místě.
                             </p>
-                            <a href="/results">
-                                <button
-                                    class="bg-blueGray-500 text-white active:bg-blueGray-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                    type="button"
-                                >
-                                    Výsledky
-                                </button>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -65,6 +59,21 @@
                 </svg>
             </div>
         </div>
+
+        <section class="pb-20 bg-blueGray-200 -mt-24">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-wrap mt-4">
+                    <div class="w-full mb-12 px-4">
+                        <ResultsTable title="Ženy" color="dark" />
+                    </div>
+                </div>
+                <div class="flex flex-wrap mt-4">
+                    <div class="w-full mb-12 px-4">
+                        <ResultsTable />
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <Footer />
 </div>
