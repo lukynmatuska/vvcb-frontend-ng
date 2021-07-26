@@ -13,6 +13,7 @@
   import Landing from "./views/Landing.svelte";
   import Profile from "./views/Profile.svelte";
   import Results from "./views/Results.svelte";
+  import Monitors from "./views/monitors/Monitors.svelte";
 
   export let url = "";
 </script>
@@ -27,5 +28,6 @@
   <Route path="profile" component={Profile} />
   <Route path="index" component={IndexOld} />
   <Route path="results" component={Results} />
+  <Route path="monitors" component={Monitors} />
   <Route path="/" component={Index} />
 </Router>
