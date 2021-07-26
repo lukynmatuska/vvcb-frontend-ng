@@ -5,6 +5,143 @@
     import ResultsTable from "../components/Results/ResultsTable.svelte";
 
     export let location;
+    export let race = {
+        name: "VCB Rudice 2020",
+        categories: [
+            {
+                category: {
+                    name: "Muži",
+                },
+                results: [
+                    {
+                        team: {
+                            name: "RC",
+                        },
+                        time: {
+                            left: "10,00",
+                            right: "10,01",
+                            final: "N",
+                        },
+                        media: {
+                            youtube: "https://youtu.be/S9nv-kwQOLQ/",
+                        },
+                    },
+                    {
+                        team: {
+                            name: "OC",
+                        },
+                        time: {
+                            left: "10,10",
+                            right: "11,11",
+                            final: "11,11",
+                        },
+                        media: {
+                            youtube: "https://youtu.be/IFel31pllfQ",
+                        },
+                    },
+                ],
+            },
+            {
+                category: {
+                    name: "Ženy",
+                },
+                results: [
+                    {
+                        team: {
+                            name: "Rudice",
+                        },
+                        time: {
+                            left: "10,00",
+                            right: "10,01",
+                            final: "N",
+                        },
+                        media: {
+                            youtube: "https://youtu.be/S9nv-kwQOLQ/",
+                        },
+                    },
+                    {
+                        team: {
+                            name: "Ostrov u Macochy",
+                        },
+                        time: {
+                            left: "10,10",
+                            right: "11,11",
+                            final: "11,11",
+                        },
+                        media: {
+                            youtube: "https://youtu.be/IFel31pllfQ",
+                        },
+                    },
+                ],
+            },
+            {
+                category: {
+                    name: "Veteráni",
+                },
+                results: [
+                    {
+                        team: {
+                            name: "Rudice",
+                        },
+                        time: {
+                            left: "10,00",
+                            right: "10,01",
+                            final: "N",
+                        },
+                        media: {
+                            youtube: "https://youtu.be/S9nv-kwQOLQ/",
+                        },
+                    },
+                    {
+                        team: {
+                            name: "Ostrov u Macochy",
+                        },
+                        time: {
+                            left: "10,10",
+                            right: "11,11",
+                            final: "11,11",
+                        },
+                        media: {
+                            youtube: "https://youtu.be/IFel31pllfQ",
+                        },
+                    },
+                ],
+            },
+            {
+                category: {
+                    name: "Dorostenci",
+                },
+                results: [
+                    {
+                        team: {
+                            name: "Rudice",
+                        },
+                        time: {
+                            left: "10,00",
+                            right: "10,01",
+                            final: "N",
+                        },
+                        media: {
+                            youtube: "https://youtu.be/S9nv-kwQOLQ/",
+                        },
+                    },
+                    {
+                        team: {
+                            name: "Ostrov u Macochy",
+                        },
+                        time: {
+                            left: "10,10",
+                            right: "11,11",
+                            final: "11,11",
+                        },
+                        media: {
+                            youtube: "https://youtu.be/IFel31pllfQ",
+                        },
+                    },
+                ],
+            },
+        ],
+    };
 </script>
 
 <div>
@@ -30,7 +167,7 @@
                     >
                         <div class="pr-12">
                             <h1 class="text-white font-semibold text-5xl">
-                                Výsledky
+                                {race.name}
                             </h1>
                             <p class="mt-4 text-lg text-blueGray-200">
                                 Rychle a přehledně na jednom místě.
@@ -62,16 +199,16 @@
 
         <section class="pb-20 bg-blueGray-200 -mt-24">
             <div class="container mx-auto px-4">
-                <div class="flex flex-wrap mt-4">
-                    <div class="w-full mb-12 px-4">
-                        <ResultsTable title="Ženy" color="dark" />
+                {#each race.categories as obj}
+                    <div class="flex flex-wrap mt-4">
+                        <div class="w-full mb-12 px-4">
+                            <ResultsTable
+                                title={obj.category.name}
+                                results={obj.results}
+                            />
+                        </div>
                     </div>
-                </div>
-                <div class="flex flex-wrap mt-4">
-                    <div class="w-full mb-12 px-4">
-                        <ResultsTable />
-                    </div>
-                </div>
+                {/each}
             </div>
         </section>
     </main>
