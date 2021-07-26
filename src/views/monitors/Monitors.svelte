@@ -220,6 +220,14 @@
         </div>
     {/each}
 </div>
-<img src="/assets/img/sponsors/bas.png" alt="BAS Rudice" />
-<img src="/assets/img/sponsors/sawtronics.svg" alt="SAWTRONICS" />
-<img src="/assets/img/sponsors/sawtronics_logo_final.svg" alt="SAWTRONICS" />
+<div
+    class="flex flex-wrap items-center justify-center"
+    style="position: absolute; bottom: 1.5vh; width: 100vw; "
+>
+    <img src="/assets/img/sponsors/bas.png" alt="BAS Rudice" />
+    <img
+        src="/assets/img/sponsors/sawtronics.svg"
+        alt="SAWTRONICS"
+        class="px-6"
+    />
+</div>
