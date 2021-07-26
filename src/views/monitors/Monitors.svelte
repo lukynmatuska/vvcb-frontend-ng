@@ -1,5 +1,6 @@
 <script>
     import ResultsTableMonitors from "../../components/Results/ResultsTableMonitors.svelte";
+    document.title = "Monitors | VVCB";
 
     // export let location;
     export let race = {
@@ -219,3 +220,6 @@
         </div>
     {/each}
 </div>
+<img src="/assets/img/sponsors/bas.png" alt="BAS Rudice" />
+<img src="/assets/img/sponsors/sawtronics.svg" alt="SAWTRONICS" />
+<img src="/assets/img/sponsors/sawtronics_logo_final.svg" alt="SAWTRONICS" />
