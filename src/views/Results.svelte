@@ -142,6 +142,7 @@
             },
         ],
     };
+    document.title = `${race.name} | Výsledky Velké Ceny Blanenska`;
 </script>
 
 <div>
