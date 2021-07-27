@@ -221,13 +221,15 @@
     {/each}
 </div>
 <div
-    class="flex flex-wrap items-center justify-center"
-    style="position: absolute; bottom: 1.5vh; width: 100vw; "
+    style="position: absolute; bottom: 0px; padding-bottom: 1.5vh; width: 100vw; background-color: rgba(255, 255, 255, .55); "
 >
-    <img src="/assets/img/sponsors/bas.png" alt="BAS Rudice" />
-    <img
-        src="/assets/img/sponsors/sawtronics.svg"
-        alt="SAWTRONICS"
-        class="px-6"
-    />
+    <p class="text-center text-2xl">Sponzoři</p>
+    <div class="flex flex-wrap items-center justify-center">
+        <img src="/assets/img/sponsors/bas.png" alt="BAS Rudice" class="p-6" />
+        <img
+            src="/assets/img/sponsors/sawtronics.svg"
+            alt="SAWTRONICS"
+            class="px-6"
+        />
+    </div>
 </div>
