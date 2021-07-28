@@ -15,9 +15,6 @@
         right: "10,01",
         final: "N",
       },
-      media: {
-        youtube: "https://youtu.be/S9nv-kwQOLQ/",
-      },
     },
     {
       team: {
@@ -27,9 +24,6 @@
         left: "10,10",
         right: "11,11",
         final: "11,11",
-      },
-      media: {
-        youtube: "https://youtu.be/IFel31pllfQ",
       },
     },
   ];
@@ -116,7 +110,7 @@
             <td
               class="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-1 text-right text-base"
             >
-              {i++}.
+              {result.position || 0}.
             </td>
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-1 text-left text-base"
@@ -147,7 +141,7 @@
             <td
               class="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-2 text-base"
             >
-              x
+              {result.points || 0}
             </td>
           </tr>
         {/each}
