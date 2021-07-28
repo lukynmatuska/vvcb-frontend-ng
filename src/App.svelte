@@ -16,6 +16,7 @@
   import Monitors from "./views/monitors/Monitors.svelte";
 
   export let url = "";
+  export let name;
 </script>
 
 <Router {url}>
