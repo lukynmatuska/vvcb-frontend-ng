@@ -101,7 +101,7 @@
         <li class="flex items-center">
           <a
             class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-            href="https://github.com/vvcb-cz"
+            href="https://github.com/lukynmatuska/vvcb-frontend"
             target="_blank"
           >
             <i

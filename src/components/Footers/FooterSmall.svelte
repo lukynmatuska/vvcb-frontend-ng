@@ -63,7 +63,7 @@
           </li>
           <li>
             <a
-              href="https://github.com/vvcb-cz"
+              href="https://github.com/lukynmatuska/vvcb-frontend"
               class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
             >
               GitHub
