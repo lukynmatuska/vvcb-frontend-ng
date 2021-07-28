@@ -1,0 +1,34 @@
+<script>
+</script>
+
+<!-- Header -->
+<div class="relative md:pt-32 pb-32 pt-12 header">
+  <!-- Mask -->
+  <span class="mask bg-gradient-default opacity-7" />
+</div>
+
+<style>
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.15s ease;
+  }
+
+  .header {
+    background-image: url(/assets/img/20170820115724_IMG_6097.jpeg);
+    background-size: cover;
+    background-position: center;
+    min-height: 15vh;
+  }
+
+  .opacity-7 {
+    opacity: 0.7 !important;
+  }
+
+  .bg-gradient-default {
+    background: linear-gradient(87deg, #172b4d 0, #1a174d 100%) !important;
+  }
+</style>
