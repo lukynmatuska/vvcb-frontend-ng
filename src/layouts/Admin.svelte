@@ -3,7 +3,7 @@
 
   // components for this layout
   import AdminNavbar from "../components/Navbars/AdminNavbar.svelte";
-  import Sidebar from "../components/Sidebar/Sidebar.svelte";
+  import AdminSidebar from "../components/Sidebar/AdminSidebar.svelte";
   import Header from "../components/Headers/Header.svelte";
   import FooterAdmin from "../components/Footers/FooterAdmin.svelte";
 
@@ -15,7 +15,7 @@
 </script>
 
 <div>
-  <Sidebar {location} />
+  <AdminSidebar {location} />
   <div class="relative md:ml-64 bg-blueGray-100">
     <AdminNavbar />
     <Header />
