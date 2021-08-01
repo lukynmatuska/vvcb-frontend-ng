@@ -9,6 +9,7 @@
 
   // pages for this layout
   import Dashboard from "../views/admin/Dashboard.svelte";
+  import ResultTemplates from "../views/admin/ResultTemplates.svelte";
 
   export let location;
   export let admin = "";
@@ -22,6 +23,7 @@
     <div class="px-4 md:px-10 mx-auto w-full -m-24">
       <Router url="admin">
         <Route path="dashboard" component={Dashboard} />
+        <Route path="result-templates" component={ResultTemplates} />
       </Router>
       <FooterAdmin />
     </div>
