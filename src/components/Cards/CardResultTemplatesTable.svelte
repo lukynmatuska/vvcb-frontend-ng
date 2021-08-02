@@ -1,5 +1,5 @@
 <script>
-  import ResultTemplatesTableDropdown from "../Dropdowns/ResultTemplatesTableDropdown.svelte";
+  import ResultTemplatesTableActionBar from "../ActionBars/ResultTemplatesTableActionBar.svelte";
   import moment from "moment";
   import "moment/locale/cs";
   moment.locale("cs");
@@ -91,7 +91,7 @@
             <td
               class="border-t-0 px-6 py-0 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap"
             >
-              <ResultTemplatesTableDropdown {result} {container} />
+              <ResultTemplatesTableActionBar {result} />
             </td>
           </tr>
         {/each}
