@@ -1,5 +1,8 @@
 <script>
   import ResultTemplatesTableDropdown from "../Dropdowns/ResultTemplatesTableDropdown.svelte";
+  import moment from "moment";
+  import "moment/locale/cs";
+  moment.locale("cs");
   export let title = "Seznam výsledků z časomíry";
   export let results = [
     {
@@ -22,7 +25,7 @@
   <div class="rounded-t mb-0 px-4 py-3 border-0">
     <div class="flex flex-wrap items-center">
       <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-        <h3 class="font-semibold text-base text-blueGray-700">
+        <h3 class="font-semibold text-xl text-blueGray-700">
           {title}
         </h3>
       </div>
@@ -62,29 +65,31 @@
       </thead>
       <tbody>
         {#each results as result}
-          <tr>
-            <th
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
-            >
-              {result.date}
-            </th>
+          <tr
+            class="border border-l-0 border-r-0 border-solid border-blueGray-100"
+          >
             <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+              class="border-t-0 px-6 py-0 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap text-left"
+            >
+              {moment(result.date).calendar()}
+            </td>
+            <td
+              class="border-t-0 px-6 py-0 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap"
             >
               {result.time.left}
             </td>
             <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+              class="border-t-0 px-6 py-0 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap"
             >
               {result.time.right}
             </td>
             <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+              class="border-t-0 px-6 py-0 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap"
             >
               {result.time.final || 0}
             </td>
             <td
-              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+              class="border-t-0 px-6 py-0 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap"
             >
               <ResultTemplatesTableDropdown {result} {container} />
             </td>
