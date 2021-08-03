@@ -3,7 +3,7 @@
     import AuthNavbar from "../components/Navbars/AuthNavbar.svelte";
     import Footer from "../components/Footers/Footer.svelte";
     import { Link } from "svelte-routing";
-    import CardTeamsTable from "../components/Cards/CardTeamsTable.svelte";
+    import CardTeamPointsTable from "../components/Cards/CardTeamPointsTable.svelte";
 
     export let location;
 </script>
@@ -73,15 +73,15 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap">
                 <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-                    <CardTeamsTable />
+                    <CardTeamPointsTable />
                 </div>
 
                 <div class="w-full md:w-4/12 px-4 text-center">
-                    <CardTeamsTable title="Následující závody" />
+                    <CardTeamPointsTable title="Následující závody" />
                 </div>
 
                 <div class="pt-6 w-full md:w-4/12 px-4 text-center">
-                    <CardTeamsTable title="Nejrychlejší sestřiky" />
+                    <CardTeamPointsTable title="Nejrychlejší sestřiky" />
                 </div>
             </div>
         </div>
