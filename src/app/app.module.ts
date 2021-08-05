@@ -41,6 +41,8 @@ import { CardResultTemplatesTableComponent } from "./components/cards/card-resul
 import { ResultTemplatesTableActionBarComponent } from './components/action-bars/result-templates-table-action-bar/result-templates-table-action-bar.component';
 import { CardResultCreateComponent } from './components/cards/card-result-create/card-result-create.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 @NgModule({
   declarations: [
@@ -76,8 +78,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     ResultTemplatesTableActionBarComponent,
     CardResultCreateComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule, OAuthModule.forRoot()],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

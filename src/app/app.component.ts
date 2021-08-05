@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 import { SocketService } from './socketio/socket.service';
 
 @Component({
@@ -9,10 +10,12 @@ import { SocketService } from './socketio/socket.service';
 export class AppComponent {
   title = 'Výsledky Velké Ceny Blanska';
 
-  public constructor(private readonly socketService: SocketService){
+  public constructor(private readonly socketService: SocketService, private readonly authService: AuthService){
+    this.authService.init();
   }
 
-  public send(){
-    this.socketService.emit("Hello, World!");
+  public login(){
+    this.authService.login();
   }
+
 }
