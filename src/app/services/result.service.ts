@@ -20,4 +20,16 @@ export class ResultService {
       )
     );
   }
+
+  public getResults(): Observable<Result[]>{
+    return this.httpClient.get(`${environment.backend.api}/result`).pipe(
+      map(
+        (res: any) => {
+          return res.map(
+            (result: any) => <Result>result
+          );
+        }
+      )
+    );
+  }
 }
