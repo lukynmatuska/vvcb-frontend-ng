@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ResultTemplateService } from 'src/app/services/result-template.service';
+import { CardResultCreateService } from 'src/app/services/card-result-create.service';
 import { ResultTemplate } from 'src/app/types/result-template';
 
 @Component({
@@ -11,22 +11,14 @@ export class ResultTemplatesTableActionBarComponent implements OnInit {
 
   @Input("resutlTemplate") resultTemplate!: ResultTemplate;
 
-  constructor(private readonly resultTemplateService: ResultTemplateService) {
+  constructor(private readonly cardResultCreateService: CardResultCreateService) { 
   }
-
+  
   ngOnInit(): void {
   }
-
-  public add() {
-    this.resultTemplateService.registerResultTemplate(this.resultTemplate);
+  
+  public add(){
+    this.cardResultCreateService.registerResultTemplate(this.resultTemplate);
   }
 
-  public delete() {
-    if (this.resultTemplate.id)
-      this.resultTemplateService.delete(this.resultTemplate.id).subscribe(
-        () => {
-          this.resultTemplateService.deleteResultTemplate(this.resultTemplate);
-        }
-      );
-  }
 }

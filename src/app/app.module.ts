@@ -41,6 +41,8 @@ import { CardResultTemplatesTableComponent } from "./components/cards/card-resul
 import { ResultTemplatesTableActionBarComponent } from './components/action-bars/result-templates-table-action-bar/result-templates-table-action-bar.component';
 import { CardResultCreateComponent } from './components/cards/card-result-create/card-result-create.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { MonitorsComponent } from './views/monitors/monitors.component';
+import { ResultsTableMonitorsComponent } from './components/cards/results-table-monitors/results-table-monitors.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +77,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     CardResultTemplatesTableComponent,
     ResultTemplatesTableActionBarComponent,
     CardResultCreateComponent,
+    MonitorsComponent,
+    ResultsTableMonitorsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
