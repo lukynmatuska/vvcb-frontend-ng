@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { CardResultCreateService } from 'src/app/services/card-result-create.service';
+import { RaceService } from 'src/app/services/race.service';
+import { ResultTemplateService } from 'src/app/services/result-template.service';
+import { ResultService } from 'src/app/services/result.service';
 import { TeamService } from 'src/app/services/team.service';
+import { Race } from 'src/app/types/race';
+import { Result } from 'src/app/types/result';
+import { ResultRequest } from 'src/app/types/result-request';
 import { ResultTemplate } from 'src/app/types/result-template';
 import { Team } from 'src/app/types/team';
 
@@ -18,17 +23,23 @@ export class CardResultCreateComponent implements OnInit {
   public form: FormGroup;
 
   public teams: Team[] = [];
-  constructor(private readonly cardResultCreateService: CardResultCreateService, private readonly teamService: TeamService) {
+  public races: Race[] = [];
+  constructor(private readonly cardResultCreateService: ResultTemplateService, private readonly teamService: TeamService, private readonly raceService: RaceService, private readonly resultService: ResultService) {
     this.cardResultCreateService.resultTemplateAsObservable().subscribe(
       (resultTemplate) => {
         this.resultTemplate = resultTemplate;
         this.setupForm();
-      }   
+      }
+    );
+    this.raceService.getRaces().subscribe(
+      (races) => {
+        this.races = races;
+      }
     );
 
     this.setupForm();
   }
-  
+
   ngOnInit(): void {
     this.teamService.getTeams().subscribe(
       (teams) => {
@@ -36,14 +47,14 @@ export class CardResultCreateComponent implements OnInit {
       }
     );
   }
-  
-  public close(){
+
+  public close() {
     this.resultTemplate = undefined;
   }
-  
-  public setupForm(){
+
+  public setupForm() {
     let final = this.resultTemplate?.time?.final;
-    if(!final && this.resultTemplate?.time?.left && this.resultTemplate?.time?.right){
+    if (!final && this.resultTemplate?.time?.left && this.resultTemplate?.time?.right) {
       final = Math.max(this.resultTemplate.time.left, this.resultTemplate.time.right);
     }
     this.form = new FormGroup({
@@ -52,7 +63,19 @@ export class CardResultCreateComponent implements OnInit {
         right: new FormControl(this.resultTemplate?.time?.right, [Validators.required]),
         final: new FormControl(final)
       }),
-      team: new FormControl()
+      team: new FormControl(),
+      race: new FormControl()
     });
+  }
+
+  public create() {
+    if (this.form.valid) {
+      let form: ResultRequest = this.form.value;
+      this.resultService.createResult(form).subscribe(
+        () => {
+          this.close();
+        }
+      );
+    }
   }
 }
