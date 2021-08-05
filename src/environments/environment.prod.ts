@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  backend: {
+    api: "https://api.vvcb.cz"
+  }
 };
