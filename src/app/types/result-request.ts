@@ -1,15 +1,11 @@
-import { Race } from "./race";
-import { Team } from "./team";
-
-export interface Result {
-    "id"?: string,
+export interface ResultRequest {
     "time"?: {
         "left"?: number,
         "right"?: number,
         "final"?: number
     },
-    "team"?: Team,
-    "race"?: Race,
+    "team"?: string,
+    "race"?: string,
     "date"?: Date,
     "media"?: {
         

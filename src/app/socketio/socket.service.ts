@@ -9,7 +9,7 @@ export class SocketService {
   private socket: Socket;
 
   constructor() { 
-    this.socket = io("http://localhost:8083/ws");
+    this.socket = io("https://api.vvcb.cz/ws");
     this.socket.on("messageResponse", (res: any) => console.log(res));
   }
 
