@@ -44,7 +44,6 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { MonitorsComponent } from './views/monitors/monitors.component';
-import { ResultsTableMonitorsComponent } from './components/cards/results-table-monitors/results-table-monitors.component';
 import { ResultsComponent } from './views/admin/results/results.component';
 import { CardResultTableComponent } from './components/cards/card-result-table/card-result-table.component';
 import { ResultTableActionBarComponent } from './components/action-bars/result-table-action-bar/result-table-action-bar.component';
@@ -53,6 +52,7 @@ import { CardTeamTableComponent } from './components/cards/card-team-table/card-
 import { TeamsComponent } from './views/admin/teams/teams.component';
 import { CardTeamCreateComponent } from './components/cards/card-team-create/card-team-create.component';
 import { TeamActionBarComponent } from './components/action-bars/team-action-bar/team-action-bar.component';
+import { CardResultTableMonitorsComponent } from './components/cards/card-result-table-monitors/card-result-table-monitors.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +87,6 @@ import { TeamActionBarComponent } from './components/action-bars/team-action-bar
     ResultTemplatesTableActionBarComponent,
     CardResultCreateComponent,
     MonitorsComponent,
-    ResultsTableMonitorsComponent,
     ResultsComponent,
     CardResultTableComponent,
     ResultTableActionBarComponent,
@@ -95,7 +94,8 @@ import { TeamActionBarComponent } from './components/action-bars/team-action-bar
     CardTeamTableComponent,
     TeamsComponent,
     TeamActionBarComponent,
-    CardTeamCreateComponent
+    CardTeamCreateComponent,
+    CardResultTableMonitorsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule, OAuthModule.forRoot()],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],

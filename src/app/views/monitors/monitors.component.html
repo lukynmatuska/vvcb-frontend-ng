@@ -1,10 +1,8 @@
 <div class="flex flex-wrap items-center justify-between" style="align-items: stretch;">
-    <!-- {#each race.categories as obj} -->
-    <div class="w-full flex-1 mx-auto p-2">
-        <!-- <ResultsTableMonitors title={obj.category.name} results={obj.results} /> -->
-        <app-results-table-monitors></app-results-table-monitors>
+    <div class="w-full flex-1 mx-auto p-2" *ngFor="let raceCategory of race.categories">
+        <app-card-result-table-monitors [raceCategory]="raceCategory" [raceId]="race.id">
+        </app-card-result-table-monitors>
     </div>
-    <!-- {/each} -->
 </div>
 <div class="sponsors">
     <p class="text-center text-2xl">Sponzoři</p>

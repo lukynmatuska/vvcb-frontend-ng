@@ -11,7 +11,8 @@ export interface Result {
     "team"?: Team,
     "race"?: Race,
     "date"?: Date,
+    "points"?: number,
     "media"?: {
-        
+
     }
 }
