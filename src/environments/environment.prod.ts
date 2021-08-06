@@ -5,7 +5,7 @@ export const environment = {
   },
   keycloak: {
     issuer: 'https://auth.vvcb.cz/auth/realms/vvcb',
-    redirectUri: 'http://localhost:4200/',
+    redirectUri: 'https://vvcb.cz/',
     clientId: 'frontend',
     responseType: 'code',
     scope: 'openid profile email',
