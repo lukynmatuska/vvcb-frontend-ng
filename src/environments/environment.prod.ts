@@ -1,7 +1,8 @@
 export const environment = {
   production: true,
   backend: {
-    api: "https://api.vvcb.cz"
+    api: "https://api.vvcb.cz",
+    socketio: "https://api.vvcb.cz/ws"
   },
   keycloak: {
     issuer: 'https://auth.vvcb.cz/auth/realms/vvcb',
