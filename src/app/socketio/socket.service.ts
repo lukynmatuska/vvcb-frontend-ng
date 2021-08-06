@@ -16,4 +16,8 @@ export class SocketService {
   public emit(msg: string){
     this.socket.emit("message", msg);
   }
+
+  public on(event: string, callback: any){
+    return this.socket.on(event, callback);
+  }
 }

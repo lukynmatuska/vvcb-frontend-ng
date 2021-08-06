@@ -78,8 +78,11 @@ export class AuthService {
     return null;
   }
 
-  public getUser(): User {
-    let claims = this.getClaims();
-    return new User(claims["sub"], claims["preferred_username"], claims["email"], claims["given_name"], claims["family_name"], this.getAllClaims()["realm_access"]["roles"]);
+  public getUser(): User | undefined {
+    if(this.isLoggedIn()){
+      let claims = this.getClaims();
+      return new User(claims["sub"], claims["preferred_username"], claims["email"], claims["given_name"], claims["family_name"], this.getAllClaims()["realm_access"]["roles"]);
+    }
+    return undefined;
   }
 }

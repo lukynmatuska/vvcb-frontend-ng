@@ -3,13 +3,23 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { Team } from '../types/team';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamService {
+
+  private teamFormSource = new Subject<Team>();
+  
+  public teamFormAsObservable(){
+    return this.teamFormSource.asObservable();
+  }
+
+  public registerTeamForm(team: Team){
+    this.teamFormSource.next(team);
+  }
 
   constructor(private readonly httpClient: HttpClient) { }
 
@@ -20,6 +30,16 @@ export class TeamService {
           return res.map(
             (team: any) => <Team>team
           );
+        }
+      )
+    );
+  }
+
+  public createTeam(data: any): Observable<Team>{
+    return this.httpClient.post(`${environment.backend.api}/team`, data).pipe(
+      map(
+        (res: any) => {
+          return <Team>res;
         }
       )
     );

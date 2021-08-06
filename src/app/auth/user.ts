@@ -38,4 +38,13 @@ export class User {
     public hasRole(role: string): boolean{
         return this._roles.includes(role);
     }
+
+    public hasAnyRole(roles: string[]): boolean{
+        for(let role of roles){
+            if(this.hasRole(role))
+                return true;
+        }
+
+        return false;
+    }
 }

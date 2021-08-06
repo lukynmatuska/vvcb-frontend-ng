@@ -49,7 +49,10 @@ import { ResultsComponent } from './views/admin/results/results.component';
 import { CardResultTableComponent } from './components/cards/card-result-table/card-result-table.component';
 import { ResultTableActionBarComponent } from './components/action-bars/result-table-action-bar/result-table-action-bar.component';
 import { ResultActionBarComponent } from './components/action-bars/result-action-bar/result-action-bar.component';
-
+import { CardTeamTableComponent } from './components/cards/card-team-table/card-team-table.component';
+import { TeamsComponent } from './views/admin/teams/teams.component';
+import { CardTeamCreateComponent } from './components/cards/card-team-create/card-team-create.component';
+import { TeamActionBarComponent } from './components/action-bars/team-action-bar/team-action-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,7 +91,11 @@ import { ResultActionBarComponent } from './components/action-bars/result-action
     ResultsComponent,
     CardResultTableComponent,
     ResultTableActionBarComponent,
-    ResultActionBarComponent
+    ResultActionBarComponent,
+    CardTeamTableComponent,
+    TeamsComponent,
+    TeamActionBarComponent,
+    CardTeamCreateComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule, OAuthModule.forRoot()],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
