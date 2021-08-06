@@ -24,8 +24,13 @@ export class CardResultCreateComponent implements OnInit {
 
   public teams: Team[] = [];
   public races: Race[] = [];
-  constructor(private readonly cardResultCreateService: ResultTemplateService, private readonly teamService: TeamService, private readonly raceService: RaceService, private readonly resultService: ResultService) {
-    this.cardResultCreateService.resultTemplateAsObservable().subscribe(
+  constructor(
+    private readonly resultTemplateService: ResultTemplateService,
+    private readonly teamService: TeamService,
+    private readonly raceService: RaceService,
+    private readonly resultService: ResultService
+  ) {
+    this.resultTemplateService.resultTemplateAsObservable().subscribe(
       (resultTemplate) => {
         this.resultTemplate = resultTemplate;
         this.setupForm();
@@ -73,6 +78,15 @@ export class CardResultCreateComponent implements OnInit {
       let form: ResultRequest = this.form.value;
       this.resultService.createResult(form).subscribe(
         () => {
+          console.log(this.resultTemplate);
+          if (this.resultTemplate?.id) {
+            this.resultTemplateService.delete(this.resultTemplate.id).subscribe(
+              () => {
+                //@ts-ignore
+                this.resultTemplateService.deleteResultTemplate(this.resultTemplate);
+              }
+            );
+          }
           this.close();
         }
       );
