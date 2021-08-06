@@ -16,7 +16,7 @@ const routes: Routes = [
     children: [
       {
         path: "dashboard", component: DashboardComponent,
-        canActivate: [RoleGuard], data: { expectedRole: ["admin"] }
+        canActivate: [RoleGuard], data: { expectedRole: ["result-filler", "admin"] }
       },
       {
         path: "categories", component: DashboardComponent,
