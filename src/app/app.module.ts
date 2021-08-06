@@ -45,6 +45,9 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { MonitorsComponent } from './views/monitors/monitors.component';
 import { ResultsTableMonitorsComponent } from './components/cards/results-table-monitors/results-table-monitors.component';
+import { ResultsComponent } from './views/admin/results/results.component';
+import { CardResultTableComponent } from './components/cards/card-result-table/card-result-table.component';
+import { ResultTableActionBarComponent } from './components/action-bars/result-table-action-bar/result-table-action-bar.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +83,10 @@ import { ResultsTableMonitorsComponent } from './components/cards/results-table-
     ResultTemplatesTableActionBarComponent,
     CardResultCreateComponent,
     MonitorsComponent,
-    ResultsTableMonitorsComponent
+    ResultsTableMonitorsComponent,
+    ResultsComponent,
+    CardResultTableComponent,
+    ResultTableActionBarComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule, OAuthModule.forRoot()],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
