@@ -48,6 +48,7 @@ import { ResultsTableMonitorsComponent } from './components/cards/results-table-
 import { ResultsComponent } from './views/admin/results/results.component';
 import { CardResultTableComponent } from './components/cards/card-result-table/card-result-table.component';
 import { ResultTableActionBarComponent } from './components/action-bars/result-table-action-bar/result-table-action-bar.component';
+import { ResultActionBarComponent } from './components/action-bars/result-action-bar/result-action-bar.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { ResultTableActionBarComponent } from './components/action-bars/result-t
     ResultsTableMonitorsComponent,
     ResultsComponent,
     CardResultTableComponent,
-    ResultTableActionBarComponent
+    ResultTableActionBarComponent,
+    ResultActionBarComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule, OAuthModule.forRoot()],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
