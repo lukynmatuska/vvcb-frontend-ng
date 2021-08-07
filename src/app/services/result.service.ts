@@ -53,6 +53,18 @@ export class ResultService {
     );
   }
 
+  public getFiltred(uriParams: string): Observable<Result[]> {
+    return this.httpClient.get(`${environment.backend.api}/result/filtred${uriParams}`).pipe(
+      map(
+        (res: any) => {
+          return res.map(
+            (result: any) => <Result>result
+          );
+        }
+      )
+    );
+  }
+
   public delete(id: string): Observable<Result> {
     return this.httpClient.delete(`${environment.backend.api}/result/${id}`).pipe(
       map(

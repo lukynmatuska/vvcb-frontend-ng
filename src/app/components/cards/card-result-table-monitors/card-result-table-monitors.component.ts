@@ -35,9 +35,15 @@ export class CardResultTableMonitorsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.resultService.getResults().subscribe(
-      (results) => {
-        this.results = results;
+    this.resultService.getFiltred(`?raceId=${this.raceId}`).subscribe(
+      (results: Result[]) => {
+        console.log(results);
+        for (const result of results) {
+          if (result.team?.category == this.raceCategory.category.id) {
+            this.results.push(result);
+            // this.results.sort(this.compareResults)
+          }
+        }
       }
     )
   }
