@@ -4,6 +4,7 @@ import { RaceService } from 'src/app/services/race.service';
 import { ResultTemplateService } from 'src/app/services/result-template.service';
 import { ResultService } from 'src/app/services/result.service';
 import { TeamService } from 'src/app/services/team.service';
+import { SocketService } from 'src/app/socketio/socket.service';
 import { Race } from 'src/app/types/race';
 import { Result } from 'src/app/types/result';
 import { ResultRequest } from 'src/app/types/result-request';
@@ -28,7 +29,8 @@ export class CardResultCreateComponent implements OnInit {
     private readonly resultTemplateService: ResultTemplateService,
     private readonly teamService: TeamService,
     private readonly raceService: RaceService,
-    private readonly resultService: ResultService
+    private readonly resultService: ResultService,
+    private readonly socketService: SocketService
   ) {
     this.resultTemplateService.resultTemplateAsObservable().subscribe(
       (resultTemplate) => {
@@ -43,6 +45,26 @@ export class CardResultCreateComponent implements OnInit {
     );
 
     this.setupForm();
+    this.socketService.on(
+      "new-team",
+      (team: Team) => {
+        this.teams.push(team);
+      }
+    );
+
+    this.socketService.on(
+      "delete-team",
+      (team: Team) => {
+        let found = this.teams.filter(value => value.id === team.id);
+        if (found[0]) {
+          this.delete(found[0]);
+        }
+      }
+    )
+  }
+
+  private delete(team: Team) {
+    this.teams.splice(this.teams.indexOf(team), 1);
   }
 
   ngOnInit(): void {
