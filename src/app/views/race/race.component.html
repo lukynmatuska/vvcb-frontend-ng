@@ -33,8 +33,7 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap mt-4" *ngFor="let raceCategory of race?.categories">
                 <div class="w-full mb-12 px-4">
-                    <app-card-result-table-race [results]="results"
-                        [title]="raceCategory.category.name + ' ' + raceCategory.rules.name">
+                    <app-card-result-table-race [raceCategory]="raceCategory" [raceId]="race?.id">
                     </app-card-result-table-race>
                 </div>
             </div>
