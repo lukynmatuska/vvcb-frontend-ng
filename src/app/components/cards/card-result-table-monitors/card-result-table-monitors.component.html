@@ -42,7 +42,7 @@
                 <tr *ngFor="let result of results; let i = index" [attr.data-index]="i">
                     <td
                         class="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-1 text-right text-base">
-                        {{i+1}}.
+                        {{result.position}}.
                     </td>
                     <th
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-1 text-left text-base">
@@ -60,11 +60,11 @@
                     </td>
                     <td
                         class="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-2 text-base">
-                        {{result.time?.final}}
+                        {{result.time?.final == 0? 'N' : result.time?.final}}
                     </td>
                     <td
                         class="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-2 text-base">
-                        {{result.points || 0}}
+                        {{result.points}}
                     </td>
                 </tr>
             </tbody>

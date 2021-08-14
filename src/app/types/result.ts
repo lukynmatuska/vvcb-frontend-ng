@@ -12,6 +12,7 @@ export interface Result {
     "race"?: Race,
     "date"?: Date,
     "points"?: number,
+    "position"?: number,
     "media"?: {
         "youtube"?: string,
     }
