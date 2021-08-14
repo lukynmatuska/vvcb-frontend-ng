@@ -3,13 +3,12 @@
         <div class="flex flex-wrap items-center">
             <div class="relative w-full px-4 max-w-full flex-grow flex-1">
                 <h3 class="font-semibold text-xl text-blueGray-700">
-                    Týmy
+                    Seznam týmů
                 </h3>
             </div>
         </div>
     </div>
     <div class="block w-full overflow-x-auto">
-        <!-- Projects table -->
         <table class="items-center w-full bg-transparent border-collapse">
             <thead class="thead-light">
                 <tr>
@@ -19,13 +18,12 @@
                     </th>
                     <th
                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                        Distrikt
+                        Okres
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="border border-l-0 border-r-0 border-solid border-blueGray-100"
-                    *ngFor="let team of teams">
+                <tr class="border border-l-0 border-r-0 border-solid border-blueGray-100" *ngFor="let team of teams">
                     <td
                         class="border-t-0 px-6 py-0 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap text-left">
                         {{team.name}}
