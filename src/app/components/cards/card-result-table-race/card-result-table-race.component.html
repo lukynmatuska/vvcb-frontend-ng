@@ -3,7 +3,7 @@
         <div class="flex flex-wrap items-center">
             <div class="relative w-full px-4 max-w-full flex-grow flex-1">
                 <h3 class="font-semibold text-lg text-blueGray-700">
-                    {{ title }}
+                    {{ raceCategory.category.name }}
                 </h3>
             </div>
         </div>
@@ -49,7 +49,7 @@
                         {{result.time?.right}}
                     </td>
                     <td class="border-t-0 px-6 py-1 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap">
-                        {{result.time?.final}}
+                        {{result.time?.final === 0? 'N' : result.time?.final}}
                     </td>
                     <td class="border-t-0 px-6 py-1 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap">
                         <a class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"

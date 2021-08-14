@@ -16,7 +16,6 @@ import { Result } from 'src/app/types/result';
 export class RaceComponent implements OnInit {
 
   public race?: Race;
-  public results?: Result[];
   // public moment: Moment = moment();
 
   constructor(
@@ -31,9 +30,6 @@ export class RaceComponent implements OnInit {
         this.raceService.getRaceById(raceId).subscribe(
           race => {
             this.race = race;
-            this.resultService.getFiltred({ raceId: race.id }).subscribe(results => {
-              this.results = results;
-            })
           },
           error => {
             router.navigate(["/"]);
