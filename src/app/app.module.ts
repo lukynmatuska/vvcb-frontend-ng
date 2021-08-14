@@ -56,6 +56,7 @@ import { CardResultTableMonitorsComponent } from './components/cards/card-result
 import { RaceComponent } from './views/race/race.component';
 import { CardResultTableRaceComponent } from './components/cards/card-result-table-race/card-result-table-race.component';
 import { CardRaceLandingTableComponent } from './components/cards/card-race-landing-table/card-race-landing-table.component';
+import { LoginComponent } from './views/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,7 +102,8 @@ import { CardRaceLandingTableComponent } from './components/cards/card-race-land
     CardResultTableMonitorsComponent,
     RaceComponent,
     CardResultTableRaceComponent,
-    CardRaceLandingTableComponent
+    CardRaceLandingTableComponent,
+    LoginComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule, OAuthModule.forRoot()],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],

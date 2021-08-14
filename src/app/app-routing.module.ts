@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ReverseAuthGuard } from './auth/reverse-auth.guard';
 import { RoleGuard } from './auth/role.guard';
 import { AdminComponent } from './layouts/admin/admin.component';
 import { DashboardComponent } from './views/admin/dashboard/dashboard.component';
@@ -7,6 +8,7 @@ import { ResultTemplatesComponent } from './views/admin/result-templates/result-
 import { ResultsComponent } from './views/admin/results/results.component';
 import { TeamsComponent } from './views/admin/teams/teams.component';
 import { LandingComponent } from './views/landing/landing.component';
+import { LoginComponent } from './views/login/login.component';
 import { MonitorsComponent } from './views/monitors/monitors.component';
 import { RaceComponent } from './views/race/race.component';
 
@@ -44,6 +46,7 @@ const routes: Routes = [
   },
   { path: "monitors", component: MonitorsComponent },
   { path: "race/:id", component: RaceComponent },
+  { path: "login", component: LoginComponent, canActivate: [ReverseAuthGuard]},
   { path: "", component: LandingComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];

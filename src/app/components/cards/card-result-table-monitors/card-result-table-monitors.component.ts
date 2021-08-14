@@ -28,7 +28,8 @@ export class CardResultTableMonitorsComponent implements OnInit {
           result.race?.id == this.raceId
         ) {
           this.results.push(result);
-          // this.results.sort(this.compareResults)
+          this.sort();
+          this.recalcPoints();
         }
       }
     )
@@ -41,21 +42,69 @@ export class CardResultTableMonitorsComponent implements OnInit {
         for (const result of results) {
           if (result.team?.category == this.raceCategory.category.id) {
             this.results.push(result);
-            // this.results.sort(this.compareResults)
           }
         }
+        this.sort();
+        this.recalcPoints();
       }
     )
   }
 
-  /*private compareResults(first: Result, second: Result) {
-    if (first.time?.final < second.time?.final) {
-      return -1;
-    }
-    if (first.time?.final > second.time?.final) {
-      return 1;
-    }
-    return 0;
-  }*/
+  private sort() {
+    this.results = this.results.sort(
+      (a, b) => {
+        if(a.time?.final === 0){
+          return 1;
+        }
 
+        if(b.time?.final === 0){
+          return -1;
+        }
+      
+        //@ts-ignore
+        if(a.time?.final < b.time?.final){
+          return -1;
+        //@ts-ignore
+        }else if(a.time?.final > b.time?.final){
+          return 1;
+        }else{
+          return 0
+        }
+      }
+    );
+  }
+
+  private recalcPoints() {
+    console.log(this.raceCategory.category.name);
+    let prev: Result | undefined = undefined;
+    let i = 0;
+    let realCount = 0;
+    while (realCount < this.results.length) {
+      let result = this.results[realCount];
+      console.log(realCount);
+      result.position = i + 1;
+      if (prev && result.time?.final != undefined) {
+        if (prev.time?.final === result.time?.final){
+          result.points = prev.points;
+          result.position = prev.position;
+          prev = result;
+          realCount++;
+          continue;
+        }
+      }
+
+      
+      
+      if(result.time?.final === 0){
+        result.points = 0;
+      }else{
+        //@ts-ignore
+        result.points = this.raceCategory?.category?.points[i];
+      }
+
+      prev = result;
+      i++;
+      realCount++;
+    }
+  }
 }
