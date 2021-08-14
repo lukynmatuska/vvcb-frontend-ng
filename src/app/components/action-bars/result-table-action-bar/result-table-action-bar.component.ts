@@ -26,4 +26,8 @@ export class ResultTableActionBarComponent implements OnInit {
     }
   }
 
+  public edit() {
+    console.log("edit result")
+  }
+
 }
