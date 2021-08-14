@@ -12,18 +12,28 @@ import { Observable, Subject } from 'rxjs';
 export class TeamService {
 
   private teamFormSource = new Subject<Team>();
-  
-  public teamFormAsObservable(){
+
+  public teamFormAsObservable() {
     return this.teamFormSource.asObservable();
   }
 
-  public registerTeamForm(team: Team){
+  public registerTeamForm(team: Team) {
     this.teamFormSource.next(team);
+  }
+
+  private teamDeleteSource = new Subject<Team>();
+
+  public teamDeleteAsObservable() {
+    return this.teamFormSource.asObservable();
+  }
+
+  public deleteTeam(team: Team) {
+    this.teamDeleteSource.next(team);
   }
 
   constructor(private readonly httpClient: HttpClient) { }
 
-  public getTeams(): Observable<Team[]>{
+  public getTeams(): Observable<Team[]> {
     return this.httpClient.get(`${environment.backend.api}/team`).pipe(
       map(
         (res: any) => {
@@ -35,7 +45,7 @@ export class TeamService {
     );
   }
 
-  public createTeam(data: any): Observable<Team>{
+  public createTeam(data: any): Observable<Team> {
     return this.httpClient.post(`${environment.backend.api}/team`, data).pipe(
       map(
         (res: any) => {
@@ -43,5 +53,15 @@ export class TeamService {
         }
       )
     );
+  }
+
+  public delete(id: string): Observable<Team> {
+    return this.httpClient.delete(`${environment.backend.api}/team/${id}`).pipe(
+      map(
+        (res: any) => {
+          return <Team>res;
+        }
+      )
+    )
   }
 }

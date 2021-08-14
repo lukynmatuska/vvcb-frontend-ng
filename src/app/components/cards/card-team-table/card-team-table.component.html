@@ -20,6 +20,10 @@
                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                         Okres
                     </th>
+                    <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Akce
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +34,9 @@
                     </td>
                     <td class="border-t-0 px-6 py-0 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap">
                         {{team.district?.name}}
+                    </td>
+                    <td class="border-t-0 px-6 py-0 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap">
+                        <app-team-table-action-bar [team]="team"></app-team-table-action-bar>
                     </td>
                 </tr>
             </tbody>

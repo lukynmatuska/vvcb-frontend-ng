@@ -12,7 +12,7 @@ export class CardTeamTableComponent implements OnInit {
 
   public teams: Team[] = [];
 
-  constructor(private readonly teamService: TeamService, private readonly socketService: SocketService) { 
+  constructor(private readonly teamService: TeamService, private readonly socketService: SocketService) {
     this.socketService.on(
       "new-team",
       (team: Team) => {
@@ -24,23 +24,29 @@ export class CardTeamTableComponent implements OnInit {
       "delete-team",
       (team: Team) => {
         let found = this.teams.filter(value => value.id === team.id);
-        if(found[0]){
+        if (found[0]) {
           this.delete(found[0]);
         }
       }
     )
   }
 
-  private delete(team: Team){
+  private delete(team: Team) {
     this.teams.splice(this.teams.indexOf(team), 1);
   }
-  
+
   ngOnInit(): void {
     this.teamService.getTeams().subscribe(
       (teams) => {
         this.teams = teams;
       }
     );
+
+    this.teamService.teamDeleteAsObservable().subscribe(
+      (team) => {
+        this.teams.splice(this.teams.indexOf(team), 1);
+      }
+    )
   }
 
 }
