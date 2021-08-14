@@ -91,7 +91,7 @@ export class CardResultCreateComponent implements OnInit {
         final: new FormControl(final)
       }),
       team: new FormControl(),
-      race: new FormControl()
+      race: new FormControl(this.getDefaultRace())
     });
   }
 
@@ -109,9 +109,19 @@ export class CardResultCreateComponent implements OnInit {
               }
             );
           }
+          if(form.race)
+            this.setDefaultRace(form.race);
           this.close();
         }
       );
     }
+  }
+
+  private setDefaultRace(raceId: string){
+    localStorage.setItem("default-race", raceId);
+  }
+
+  private getDefaultRace(): string | null{
+    return localStorage.getItem("default-race");
   }
 }
