@@ -53,6 +53,8 @@ import { TeamsComponent } from './views/admin/teams/teams.component';
 import { CardTeamCreateComponent } from './components/cards/card-team-create/card-team-create.component';
 import { TeamActionBarComponent } from './components/action-bars/team-action-bar/team-action-bar.component';
 import { CardResultTableMonitorsComponent } from './components/cards/card-result-table-monitors/card-result-table-monitors.component';
+import { RaceComponent } from './views/race/race.component';
+import { CardResultTableRaceComponent } from './components/cards/card-result-table-race/card-result-table-race.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,7 +97,9 @@ import { CardResultTableMonitorsComponent } from './components/cards/card-result
     TeamsComponent,
     TeamActionBarComponent,
     CardTeamCreateComponent,
-    CardResultTableMonitorsComponent
+    CardResultTableMonitorsComponent,
+    RaceComponent,
+    CardResultTableRaceComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule, OAuthModule.forRoot()],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],

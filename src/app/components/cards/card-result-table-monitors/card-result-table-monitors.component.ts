@@ -35,7 +35,7 @@ export class CardResultTableMonitorsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.resultService.getFiltred(`?raceId=${this.raceId}`).subscribe(
+    this.resultService.getFiltred({ raceId: this.raceId }).subscribe(
       (results: Result[]) => {
         console.log(results);
         for (const result of results) {

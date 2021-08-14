@@ -23,4 +23,14 @@ export class RaceService {
       )
     );
   }
+
+  public getRaceById(id: String): Observable<Race> {
+    return this.httpClient.get(`${environment.backend.api}/race/${id}`).pipe(
+      map(
+        (res: any) => {
+          return <Race>res;
+        }
+      )
+    );
+  }
 }

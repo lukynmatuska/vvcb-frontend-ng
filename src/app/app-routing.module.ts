@@ -8,6 +8,7 @@ import { ResultsComponent } from './views/admin/results/results.component';
 import { TeamsComponent } from './views/admin/teams/teams.component';
 import { LandingComponent } from './views/landing/landing.component';
 import { MonitorsComponent } from './views/monitors/monitors.component';
+import { RaceComponent } from './views/race/race.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,7 @@ const routes: Routes = [
     canActivate: [RoleGuard], data: { expectedRole: ["result-filler", "admin"] }
   },
   { path: "monitors", component: MonitorsComponent },
+  { path: "race/:id", component: RaceComponent },
   { path: "", component: LandingComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];

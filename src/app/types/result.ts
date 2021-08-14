@@ -13,6 +13,6 @@ export interface Result {
     "date"?: Date,
     "points"?: number,
     "media"?: {
-
+        "youtube"?: string,
     }
 }

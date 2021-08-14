@@ -4,6 +4,7 @@ import { Season } from "./season";
 
 export interface Race {
     "id": string,
+    "date"?: Date,
     "name"?: string,
     "season"?: Season,
     "categories"?: RaceCategory[],

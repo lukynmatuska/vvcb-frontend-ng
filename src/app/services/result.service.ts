@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -53,8 +53,10 @@ export class ResultService {
     );
   }
 
-  public getFiltred(uriParams: string): Observable<Result[]> {
-    return this.httpClient.get(`${environment.backend.api}/result/filtred${uriParams}`).pipe(
+  public getFiltred(uriParams: any): Observable<Result[]> {
+    let queryParams = new HttpParams()
+      .set("raceId", uriParams.raceId);
+    return this.httpClient.get(`${environment.backend.api}/result/filtred/`, { params: queryParams }).pipe(
       map(
         (res: any) => {
           return res.map(
