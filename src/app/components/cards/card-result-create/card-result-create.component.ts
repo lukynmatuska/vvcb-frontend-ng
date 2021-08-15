@@ -20,6 +20,7 @@ import { Team } from 'src/app/types/team';
 export class CardResultCreateComponent implements OnInit {
 
   public resultTemplate?: ResultTemplate;
+  public result?: Result;
   //@ts-ignore
   public form: FormGroup;
 
@@ -35,16 +36,24 @@ export class CardResultCreateComponent implements OnInit {
     this.resultTemplateService.resultTemplateAsObservable().subscribe(
       (resultTemplate) => {
         this.resultTemplate = resultTemplate;
-        this.setupForm();
+        this.setupForm(resultTemplate);
       }
     );
+
+    this.resultService.resultAsObservable().subscribe(
+      (result) => {
+        this.result = result;
+        this.setupForm(result);
+      }
+    );
+
     this.raceService.getRaces().subscribe(
       (races) => {
         this.races = races;
       }
     );
 
-    this.setupForm();
+    this.setupForm({});
     this.socketService.on(
       "new-team",
       (team: Team) => {
@@ -77,51 +86,70 @@ export class CardResultCreateComponent implements OnInit {
 
   public close() {
     this.resultTemplate = undefined;
+    this.result = undefined;
   }
 
-  public setupForm() {
-    let final = this.resultTemplate?.time?.final;
-    if (!final && this.resultTemplate?.time?.left && this.resultTemplate?.time?.right) {
-      final = Math.max(this.resultTemplate.time.left, this.resultTemplate.time.right);
+  public setupForm(result: Result | ResultTemplate) {
+    let final = result.time?.final;
+    if (!final && result?.time?.left && result?.time?.right) {
+      final = Math.max(result.time.left, result.time.right);
     }
+
+    let team: string | undefined = undefined;
+    if ("team" in result)
+      team = result?.team?.id;
+
+    let race: string | undefined = undefined;
+    if ("race" in result)
+      race = result?.race?.id;
+
     this.form = new FormGroup({
       time: new FormGroup({
-        left: new FormControl(this.resultTemplate?.time?.left, [Validators.required]),
-        right: new FormControl(this.resultTemplate?.time?.right, [Validators.required]),
+        left: new FormControl(result.time?.left, [Validators.required]),
+        right: new FormControl(result.time?.right, [Validators.required]),
         final: new FormControl(final)
       }),
-      team: new FormControl(),
-      race: new FormControl(this.getDefaultRace())
+      team: new FormControl(team),
+      race: new FormControl(race ? race : this.getDefaultRace())
     });
   }
 
   public create() {
     if (this.form.valid) {
       let form: ResultRequest = this.form.value;
-      this.resultService.createResult(form).subscribe(
-        () => {
-          console.log(this.resultTemplate);
-          if (this.resultTemplate?.id) {
-            this.resultTemplateService.delete(this.resultTemplate.id).subscribe(
-              () => {
-                //@ts-ignore
-                this.resultTemplateService.deleteResultTemplate(this.resultTemplate);
-              }
-            );
+      if (this.result) {
+        //@ts-ignore
+        this.resultService.update(this.result.id, form).subscribe(
+          (result) => {
+            this.close();
           }
-          if(form.race)
-            this.setDefaultRace(form.race);
-          this.close();
-        }
-      );
+        );
+      } else {
+        this.resultService.createResult(form).subscribe(
+          () => {
+            console.log(this.resultTemplate);
+            if (this.resultTemplate?.id) {
+              this.resultTemplateService.delete(this.resultTemplate.id).subscribe(
+                () => {
+                  //@ts-ignore
+                  this.resultTemplateService.deleteResultTemplate(this.resultTemplate);
+                }
+              );
+            }
+            if (form.race)
+              this.setDefaultRace(form.race);
+            this.close();
+          }
+        );
+      }
     }
   }
 
-  private setDefaultRace(raceId: string){
+  private setDefaultRace(raceId: string) {
     localStorage.setItem("default-race", raceId);
   }
 
-  private getDefaultRace(): string | null{
+  private getDefaultRace(): string | null {
     return localStorage.getItem("default-race");
   }
 }

@@ -27,7 +27,7 @@ export class ResultTableActionBarComponent implements OnInit {
   }
 
   public edit() {
-    console.log("edit result")
+    this.resultService.registerResult(this.result);
   }
 
 }

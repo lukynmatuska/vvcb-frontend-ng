@@ -76,4 +76,13 @@ export class ResultService {
       )
     )
   }
+
+  public update(id: string, form: ResultRequest) {
+    return this.httpClient.patch(`${environment.backend.api}/result/${id}`, form).pipe(
+      map((res: any) => {
+        return <Result>this.resultAsObservable;
+      }
+      )
+    );
+  }
 }

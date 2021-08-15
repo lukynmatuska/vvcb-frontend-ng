@@ -19,6 +19,7 @@ export class CardResultTableComponent implements OnInit {
     });
 
     this.socketService.on("update-result", (result: Result) => {
+      console.log("Update je tu");
       let found = this.results.filter(value => value.id === result.id);
       if(found[0]){
         this.update(found[0], result);
