@@ -8,6 +8,6 @@ export interface ResultRequest {
     "race"?: string,
     "date"?: Date,
     "media"?: {
-        
+        "youtube": string
     }
 }

@@ -43,6 +43,7 @@ export class CardResultTableComponent implements OnInit {
     old.team = update.team;
     old.time = update.time;
     old.date = update.date;
+    old.media = update.media;
   }
 
   ngOnInit(): void {

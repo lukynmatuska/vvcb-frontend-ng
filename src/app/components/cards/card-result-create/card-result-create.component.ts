@@ -103,6 +103,12 @@ export class CardResultCreateComponent implements OnInit {
     if ("race" in result)
       race = result?.race?.id;
 
+    let youtube: string | undefined = undefined;
+    if("media" in result)
+      //@ts-ignore
+      if("youtube" in result.media)
+        youtube = result.media.youtube;
+
     this.form = new FormGroup({
       time: new FormGroup({
         left: new FormControl(result.time?.left, [Validators.required]),
@@ -110,7 +116,10 @@ export class CardResultCreateComponent implements OnInit {
         final: new FormControl(final)
       }),
       team: new FormControl(team),
-      race: new FormControl(race ? race : this.getDefaultRace())
+      race: new FormControl(race ? race : this.getDefaultRace()),
+      media: new FormGroup({
+        youtube: new FormControl(youtube)
+      })
     });
   }
 
