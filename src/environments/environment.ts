@@ -9,7 +9,7 @@ export const environment = {
     socketio: "https://api.vvcb.cz/ws"
   },
   keycloak: {
-    issuer: 'https://auth.vvcb.cz/realms/vvcb',
+    issuer: 'https://auth.lukasmatuska.cz/realms/vvcb',
     redirectUri: 'http://localhost:4200/',
     clientId: 'frontend',
     responseType: 'code',
