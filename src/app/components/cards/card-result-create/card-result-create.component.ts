@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { RaceService } from 'src/app/services/race.service';
 import { ResultTemplateService } from 'src/app/services/result-template.service';
 import { ResultService } from 'src/app/services/result.service';
@@ -22,7 +22,7 @@ export class CardResultCreateComponent implements OnInit {
   public resultTemplate?: ResultTemplate;
   public result?: Result;
   //@ts-ignore
-  public form: FormGroup;
+  public form: UntypedFormGroup;
 
   public teams: Team[] = [];
   public races: Race[] = [];
@@ -109,16 +109,16 @@ export class CardResultCreateComponent implements OnInit {
       if("youtube" in result.media)
         youtube = result.media.youtube;
 
-    this.form = new FormGroup({
-      time: new FormGroup({
-        left: new FormControl(result.time?.left, [Validators.required]),
-        right: new FormControl(result.time?.right, [Validators.required]),
-        final: new FormControl(final)
+    this.form = new UntypedFormGroup({
+      time: new UntypedFormGroup({
+        left: new UntypedFormControl(result.time?.left, [Validators.required]),
+        right: new UntypedFormControl(result.time?.right, [Validators.required]),
+        final: new UntypedFormControl(final)
       }),
-      team: new FormControl(team),
-      race: new FormControl(race ? race : this.getDefaultRace()),
-      media: new FormGroup({
-        youtube: new FormControl(youtube)
+      team: new UntypedFormControl(team),
+      race: new UntypedFormControl(race ? race : this.getDefaultRace()),
+      media: new UntypedFormGroup({
+        youtube: new UntypedFormControl(youtube)
       })
     });
   }

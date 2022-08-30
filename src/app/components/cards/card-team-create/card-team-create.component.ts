@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { CategoryService } from 'src/app/services/category.service';
 import { DistrictService } from 'src/app/services/district.service';
 import { TeamService } from 'src/app/services/team.service';
@@ -16,7 +16,7 @@ import { Team } from 'src/app/types/team';
 export class CardTeamCreateComponent implements OnInit {
 
   public team?: Team;
-  public form!: FormGroup;
+  public form!: UntypedFormGroup;
   public categories: Category[] = [];
   public districts: District[] = [];
 
@@ -45,10 +45,10 @@ export class CardTeamCreateComponent implements OnInit {
   }
 
   public setupForm(){
-    this.form = new FormGroup({
-      name: new FormControl(this.team?.name, [Validators.required]),
-      category: new FormControl(this.team?.category?.id, [Validators.required]),
-      district: new FormControl(this.team?.district?.id, [Validators.required])
+    this.form = new UntypedFormGroup({
+      name: new UntypedFormControl(this.team?.name, [Validators.required]),
+      category: new UntypedFormControl(this.team?.category?.id, [Validators.required]),
+      district: new UntypedFormControl(this.team?.district?.id, [Validators.required])
     });
   }
 

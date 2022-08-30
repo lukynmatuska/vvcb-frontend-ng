@@ -122,6 +122,5 @@
     "@schematics/angular:component": {
       "style": "scss"
     }
-  },
-  "defaultProject": "vvcb-frontend-ng"
+  }
 }
