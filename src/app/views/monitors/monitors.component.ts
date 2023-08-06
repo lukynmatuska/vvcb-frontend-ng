@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MonitorService } from 'src/app/services/monitor.service';
 import { Race } from 'src/app/types/race';
+import { SimpleResultResponse } from 'src/app/types/simple-results-response';
 
 @Component({
   selector: 'app-monitors',
@@ -10,15 +11,18 @@ import { Race } from 'src/app/types/race';
 export class MonitorsComponent implements OnInit {
 
   public race: Race = { id: "exmaple" };
+  public simpleResultsResponse: SimpleResultResponse = {};
 
   constructor(
     private readonly monitorService: MonitorService
   ) { }
 
   ngOnInit(): void {
-    this.monitorService.getInitData().subscribe(
+    this.monitorService.getSimpleResults().subscribe(
       (res) => {
-        this.race = <Race>res.race;
+        console.log(res);
+        this.simpleResultsResponse = res;
+        Object.entries(res).forEach(([key, value]) => console.log(`${key}: ${value}`));
       }
     )
   }

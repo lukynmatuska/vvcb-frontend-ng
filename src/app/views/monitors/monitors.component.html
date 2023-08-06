@@ -1,7 +1,19 @@
 <div class="flex flex-wrap items-center justify-between" style="align-items: stretch;">
-    <div class="w-full flex-1 mx-auto p-2" *ngFor="let raceCategory of race.categories">
-        <app-card-result-table-monitors [raceCategory]="raceCategory" [raceId]="race.id">
-        </app-card-result-table-monitors>
+    <div class="w-full flex-1 mx-auto p-2">
+        <app-card-simple-results-table-monitors [categoryName]="'Muži'" [results]="simpleResultsResponse.muzi">
+        </app-card-simple-results-table-monitors>
+    </div>
+    <div class="w-full flex-1 mx-auto p-2">
+        <app-card-simple-results-table-monitors [categoryName]="'Ženy'" [results]="simpleResultsResponse.zeny">
+        </app-card-simple-results-table-monitors>
+    </div>
+    <div class="w-full flex-1 mx-auto p-2">
+        <app-card-simple-results-table-monitors [categoryName]="'Dorostenci'" [results]="simpleResultsResponse.dorostenci">
+        </app-card-simple-results-table-monitors>
+    </div>
+    <div class="w-full flex-1 mx-auto p-2">
+        <app-card-simple-results-table-monitors [categoryName]="'Veteráni'" [results]="simpleResultsResponse.veterani">
+        </app-card-simple-results-table-monitors>
     </div>
 </div>
 <div class="sponsors">
@@ -9,6 +21,11 @@
     <div class="flex flex-wrap items-center justify-center">
         <img src="assets/img/sponsors/bas.png" alt="BAS Rudice" class="p-6" />
         <img src="assets/img/sponsors/sawtronics.svg" alt="SAWTRONICS" class="sawtronics" />
-        <img src="assets/img/sponsors/list.png" alt="Sponzoři VCB" />
+        <p style="text-align: center; font-size: 1.15rem; margin-right: 1rem;">
+            Powered&nbsp;by<br>
+            <span style="font-size: 1.5rem;">
+                www.lukasmatuska.cz
+            </span>
+        </p>
     </div>
 </div>

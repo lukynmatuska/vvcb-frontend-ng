@@ -8,6 +8,9 @@ export const environment = {
     api: "https://api.vvcb.cz",
     socketio: "https://api.vvcb.cz/ws"
   },
+  middleware: {
+    url: "http://localhost:8000",
+  },
   keycloak: {
     issuer: 'https://auth.lukasmatuska.cz/realms/vvcb',
     redirectUri: 'http://localhost:4200/',
