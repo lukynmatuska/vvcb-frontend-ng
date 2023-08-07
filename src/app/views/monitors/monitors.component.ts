@@ -14,6 +14,8 @@ export class MonitorsComponent implements OnInit {
   public race: Race = { id: "exmaple" };
   public simpleResultsResponse: SimpleResultResponse = {};
   private params: any;
+  public loadingResults: number = 0;
+  public errorLoadingResults: number = 0;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
@@ -25,9 +27,17 @@ export class MonitorsComponent implements OnInit {
   }
 
   private updateResults(): void {
+    this.errorLoadingResults--;
+    this.loadingResults++;
     this.monitorService.getSimpleResults(this.params.url).subscribe(
-      (res) => {
+      (res): void => {
         this.simpleResultsResponse = res;
+        this.loadingResults--;
+      },
+      (error): void => {
+        console.error(error);
+        this.loadingResults--;
+        this.errorLoadingResults = 1;
       }
     )
   }

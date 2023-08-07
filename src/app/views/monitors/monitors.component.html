@@ -1,3 +1,11 @@
+<div class="loading" *ngIf="loadingResults > 0">
+    <i class="fa-solid fa-spinner fa-spin"></i>
+    <h1>Načítám výsledky</h1>
+</div>
+<div class="loading error" *ngIf="errorLoadingResults > 0">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <h1>Chyba při načítání výsledků</h1>
+</div>
 <div class="flex flex-wrap items-center justify-between" style="align-items: stretch;">
     <div class="w-full flex-1 mx-auto p-2">
         <app-card-simple-results-table-monitors [categoryName]="'Muži'" [results]="simpleResultsResponse.muzi">
@@ -17,15 +25,13 @@
     </div>
 </div>
 <div class="sponsors">
-    <p class="text-center text-2xl">Sponzoři</p>
-    <div class="flex flex-wrap items-center justify-center">
-        <img src="assets/img/sponsors/bas.png" alt="BAS Rudice" class="p-6" />
-        <img src="assets/img/sponsors/sawtronics.svg" alt="SAWTRONICS" class="sawtronics" />
-        <p style="text-align: center; font-size: 1.15rem; margin-right: 1rem;">
-            Powered&nbsp;by<br>
-            <span style="font-size: 1.5rem;">
-                www.lukasmatuska.cz
-            </span>
-        </p>
-    </div>
+    <header class="text-center text-2xl">Sponzoři</header>
+    <img src="assets/img/sponsors/bas.png" alt="BAS Rudice" class="p-6 bas" />
+    <img src="assets/img/sponsors/sawtronics.svg" alt="SAWTRONICS" class="sawtronics" />
+    <p class="lukasmatuska">
+        Powered&nbsp;by<br>
+        <span style="font-size: 1.5rem;">
+            www.lukasmatuska.cz
+        </span>
+    </p>
 </div>

@@ -1,19 +1,72 @@
+div.loading {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 85vh;
+    width: 100vw;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.55);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+div.loading i {
+    font-size: 7.5rem;
+    margin: auto auto 0 auto;
+}
+
+div.loading h1 {
+    font-size: 3.5rem;
+    margin: 0 auto auto auto;
+}
+
+div.loading.error {
+    background-color: rgba(255, 0, 0, 0.45);
+    color: black;
+}
+
 .sponsors {
+    z-index: 50;
     position: absolute;
     padding-left: 0.5vw;
     bottom: 0px;
-    padding-bottom: 0.5vh; /*max-height: 13vh;*/
+    padding-bottom: 0.5vh;
+    max-height: 13vh;
     width: 100vw;
     background-color: rgba(255, 255, 255, 0.55);
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 25% 75%;
+    grid-template-areas:
+        ". header ."
+        "bas sawtronics lukasmatuska";
+}
+
+.sponsors header {
+    grid-area: header;
+    font-size: 1.5rem;
 }
 
 .sponsors img {
     max-height: 10vh;
 }
 
+.sponsors img.bas {
+    grid-area: bas;
+}
+
 .sponsors img.sawtronics {
+    grid-area: sawtronics;
     min-height: 8.5vh;
     height: 100%;
     flex-grow: 1;
     margin: auto;
+}
+
+.sponsors .lukasmatuska {
+    grid-area: lukasmatuska;
+    text-align: center;
+    font-size: 1.15rem;
+    margin-right: 1rem;
 }
