@@ -23,8 +23,10 @@ export class MonitorService {
     )
   }
 
-  public getSimpleResults(): Observable<SimpleResultResponse> {
-    return this.httpClient.get(`${environment.middleware.url}/results/next`).pipe(
+  public getSimpleResults(
+    url: String = 'next'
+  ): Observable<SimpleResultResponse> {
+    return this.httpClient.get(`${environment.middleware.url}/results/${url}`).pipe(
       map(
         (res: SimpleResultResponse) => {
           return res;

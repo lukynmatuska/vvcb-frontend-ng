@@ -45,6 +45,7 @@ const routes: Routes = [
     canActivate: [RoleGuard], data: { expectedRole: ["result-filler", "admin"] }
   },
   { path: "monitors", component: MonitorsComponent },
+  { path: "monitors/:url", component: MonitorsComponent },
   { path: "race/:id", component: RaceComponent },
   { path: "login", component: LoginComponent, canActivate: [ReverseAuthGuard]},
   { path: "", component: LandingComponent },
