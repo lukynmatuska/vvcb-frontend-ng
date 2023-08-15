@@ -1,14 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Result } from '../types/result';
 import { ResultRequest } from '../types/result-request';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class ResultService {
 
   private resultSource = new Subject<Result>();

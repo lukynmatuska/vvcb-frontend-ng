@@ -1,14 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Monitors } from '../types/monitors';
 import { SimpleResultResponse } from '../types/simple-results-response';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class MonitorService {
 
   constructor(private readonly httpClient: HttpClient) { }
