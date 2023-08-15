@@ -52,7 +52,7 @@ export class MonitorsComponent implements OnInit {
       this.timer--; // decrease timer
       if (
         this.timer === 0 || // after one minute
-        (this.errorLoadingResults && this.timer === (this.ONE_MINUTE - 10)) // after ten seconds if loading failed
+        (this.errorLoadingResults > 0 && this.timer === (this.ONE_MINUTE - 10)) // after ten seconds if loading failed
       ) {
         this.updateResults()
         this.timer = this.ONE_MINUTE; // refresh timer
