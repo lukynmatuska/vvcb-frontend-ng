@@ -11,6 +11,9 @@ import { SimpleResultResponse } from 'src/app/types/simple-results-response';
 })
 export class MonitorsComponent implements OnInit {
 
+  ONE_SECOND: number = 1000;
+  ONE_MINUTE: number = 60;
+  public timer: number = this.ONE_MINUTE;
   public race: Race = { id: "exmaple" };
   public simpleResultsResponse: SimpleResultResponse = {};
   private params: any;
@@ -44,8 +47,16 @@ export class MonitorsComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateResults()
+    this.timer = this.ONE_MINUTE; // setup timer
     setInterval(() => {
-      this.updateResults()
-    }, 60 * 1000); // one minute
+      this.timer--; // decrease timer
+      if (
+        this.timer === 0 || // after one minute
+        (this.errorLoadingResults && this.timer === (this.ONE_MINUTE - 10)) // after ten seconds if loading failed
+      ) {
+        this.updateResults()
+        this.timer = this.ONE_MINUTE; // refresh timer
+      }
+    }, this.ONE_SECOND); // run this code every second
   }
 }
