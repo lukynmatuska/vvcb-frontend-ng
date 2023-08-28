@@ -24,7 +24,7 @@ export class MonitorService {
   }
 
   public getSimpleResults(
-    url: String = 'next'
+    url: String = 'last'
   ): Observable<SimpleResultResponse> {
     return this.httpClient.get(`${environment.middleware.url}/results/${url}`).pipe(
       map(
