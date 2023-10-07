@@ -37,7 +37,7 @@ export class AuthService {
       this.oauthService.setStorage(localStorage);
       this.oauthService.tokenValidationHandler = new NullValidationHandler();
 
-      this.oauthService.loadDiscoveryDocumentAndTryLogin().then(
+      this.oauthService.loadDiscoveryDocumentAndLogin().then(
         (isLoggedIn) => {
           if (isLoggedIn) {
             this.oauthService.setupAutomaticSilentRefresh();
