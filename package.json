@@ -36,7 +36,7 @@
     "@angular/compiler-cli": "^16.2.12",
     "@types/datatables.net": "^1.10.28",
     "@types/jasmine": "~5.1.4",
-    "@types/jquery": "^3.5.22",
+    "@types/jquery": "^3.5.29",
     "@types/node": "^20.8.10",
     "jasmine-core": "~5.1.1",
     "karma": "~6.4.2",
