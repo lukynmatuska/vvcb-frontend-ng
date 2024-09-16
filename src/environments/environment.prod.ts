@@ -9,7 +9,7 @@ export const environment = {
   },
   keycloak: {
     issuer: 'https://auth.lukasmatuska.cz/realms/vvcb',
-    redirectUri: 'https://vvcb.cz/',
+    redirectUri: window.location.origin,
     clientId: 'frontend',
     responseType: 'code',
     scope: 'openid profile email',
